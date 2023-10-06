@@ -9,6 +9,7 @@ function Listusers(parameter) {
     async function listUsers(setUserList, userList) {
         try {
             const jwt_token = await readCookie('jwt_token')
+            console.log(jwt_token)
             const response = await fetch(`${process.env.REACT_APP_API_URL}/users/listAllUsers`, {
                 method: "GET",
                 headers:{
@@ -31,16 +32,13 @@ function Listusers(parameter) {
     }
     return (
         <div>
-                        <hr></hr>
         <h2>List Users</h2>
             <button onClick={handleSubmit}>List all users</button>
-            {localList && <h1>User list is :{localList.map((item,index) => {return (
+            {localList && <h4>User list is :{localList.map((item,index) => {return (
                 <div>
-                    <h3>{item.username}</h3>
+                    <h6>{item.username}</h6>
                 </div>
-            )})}</h1>}
-
-        <hr></hr>
+            )})}</h4>}
 
 
     </div>

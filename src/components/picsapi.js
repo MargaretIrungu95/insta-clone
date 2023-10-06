@@ -1,4 +1,10 @@
 import { useEffect, useState } from 'react';
+import { BsHeart } from 'react-icons/bs';
+import { FaRegComment } from 'react-icons/fa';
+import { GoBookmark } from 'react-icons/go';
+import {GiPumpkinMask} from 'react-icons/gi';
+import {GiWitchFace} from 'react-icons/gi';
+import {CiLocationArrow1} from 'react-icons/ci';
 
 function Picsapi () {
     async function fetchImages () {
@@ -14,16 +20,21 @@ function Picsapi () {
     const [photos, setPhotos] = useState()
     
   return (
-    <div>
-        <hr></hr>
-        <h3>WELCOME! Happy Scrolling!</h3>
-        <button onClick={(event) => setPhotos([])}>Switch Images off</button>
-        <button onClick={(event) => fetchImages()}> Fetch Pics</button>
+    <div className='posts'>
+        <h2><GiWitchFace/> WELCOME! <GiPumpkinMask/> Happy SPOOK season! <GiPumpkinMask/></h2>
+        <button className='button' onClick={(event) => setPhotos([])}>Switch Images off</button>
+        <button className='button' onClick={(event) => fetchImages()}> Fetch Pics</button>
         {photos && photos.map((item, index) => {
             return (
                 <div>
-                    <img src = {item.download_url} width = "50%" alt='' /> 
-                    <h4>By: {item.author}</h4>   
+                    <img src = {item.download_url} width = "60%" height = "400px" alt=''/> 
+                    <div className='picicons'>
+                    <BsHeart />
+                    <FaRegComment />
+                    <CiLocationArrow1/>
+                    <GoBookmark />
+                    </div>
+                    <h8>By: {item.author}</h8>   
                 </div>
             )
         })}

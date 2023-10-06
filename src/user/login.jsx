@@ -16,10 +16,10 @@ function Login(parameter) {
             if (data.message === "login successful, new token issued") {
                 writeCookie("jwt_token", data.user.token, 7)
                 setLoggedIn(true)
-                setMessage(data.message)
+                // setMessage(data.message)
             } else {
                 setLoggedIn(false)
-                setMessage(data.message)
+                // setMessage(data.message)
             }
             } catch (error) {
             console.log(error)
@@ -27,11 +27,10 @@ function Login(parameter) {
     }
     function handleSubmit(event) {
         event.preventDefault();
-        login(parameter.username, parameter.password, parameter.setLoggedIn, parameter.setMessage);
+        login(parameter.username, parameter.password, parameter.setLoggedIn);
     }
     return (
         <div>
-            <hr></hr>
         <h2>Login User</h2>
         <form onSubmit={handleSubmit}>
 
